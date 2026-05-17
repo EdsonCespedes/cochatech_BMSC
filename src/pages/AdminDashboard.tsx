@@ -3,7 +3,7 @@ import {
   TrendingDown, Users, DollarSign, BarChart3, Search,
   Download, MessageSquare, Mail, Phone, Bell,
   Calendar, UserCheck, RefreshCw, AlertOctagon,
-  ChevronRight, X, ArrowUpRight, Layers, Target, Activity
+  ChevronRight, X, ArrowUpRight, Layers, Target, Activity, TrendingUp
 } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { adminKPIs, Debtor } from '@/data/mockData';
@@ -12,8 +12,10 @@ import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis, Tooltip,
   ResponsiveContainer, CartesianGrid, LineChart, Line, Legend
 } from 'recharts';
+import Projections from '@/pages/admin/Projections';
+import AgentAssignments from '@/pages/admin/AgentAssignments';
 
-type AdminView = 'overview' | 'debtors' | 'profile';
+type AdminView = 'overview' | 'debtors' | 'profile' | 'projections' | 'assignments';
 
 function ScoreBadge({ score }: { score: number }) {
   const color = score >= 85 ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
@@ -93,6 +95,8 @@ export default function AdminDashboard() {
         <div className="max-w-7xl mx-auto px-4 flex gap-1 py-2">
           {[
             { id: 'overview', label: 'Resumen', icon: BarChart3 },
+            { id: 'projections', label: 'Proyecciones', icon: TrendingUp },
+            { id: 'assignments', label: 'Asignaciones', icon: UserCheck },
             { id: 'debtors', label: 'Deudores', icon: Users },
           ].map(({ id, label, icon: Icon }) => (
             <button
@@ -253,6 +257,18 @@ export default function AdminDashboard() {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {view === 'assignments' && (
+        <div className="max-w-7xl mx-auto px-4 py-8 animate-fade-in">
+          <AgentAssignments />
+        </div>
+      )}
+
+      {view === 'projections' && (
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <Projections />
         </div>
       )}
 

@@ -3,7 +3,7 @@ import { debtors, Debtor } from '@/data/mockData';
 
 type Mode = 'client' | 'admin' | 'agents';
 type Theme = 'light' | 'dark';
-type AdminView = 'overview' | 'debtors' | 'profile' | 'ai-assistant' | 'agents-kpi' | 'analytics' | 'assignments';
+type AdminView = 'overview' | 'debtors' | 'profile' | 'ai-assistant' | 'agents-kpi' | 'analytics' | 'assignments' | 'projections';
 
 interface AppContextType {
   mode: Mode;

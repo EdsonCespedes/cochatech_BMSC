@@ -128,6 +128,74 @@ export const collectionAgents: CollectionAgent[] = [
     ],
     avatar: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150',
   },
+  {
+  id: 'ag4',
+  name: 'María Fernanda Quiroga',
+  email: 'maria.q@bancamsc.bo',
+  department: 'SC',
+  assignedDebtors: ['11', '12', '13'],
+  metrics: {
+    totalAssigned: 21,
+    contacted: 20,
+    negotiations: 12,
+    resolved: 9,
+    resolutionRate: 42.8,
+    avgDaysToResolve: 11,
+    recoveredAmount: 68400,
+  },
+  customKPIs: [
+    { id: 'kpi1', name: 'Llamadas/Día', value: 18, target: 15, unit: 'llamadas', color: '#155B3A' },
+    { id: 'kpi2', name: 'Tasa Contacto', value: 95, target: 90, unit: '%', color: '#C7A15A' },
+    { id: 'kpi3', name: 'Recuperación', value: 3250, target: 3000, unit: 'Bs.', color: '#E8872A' },
+  ],
+  avatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg',
+},
+
+{
+  id: 'ag5',
+  name: 'José Luis Mamani',
+  email: 'jose.m@bancamsc.bo',
+  department: 'LP',
+  assignedDebtors: ['14', '15'],
+  metrics: {
+    totalAssigned: 17,
+    contacted: 13,
+    negotiations: 7,
+    resolved: 5,
+    resolutionRate: 29.4,
+    avgDaysToResolve: 21,
+    recoveredAmount: 24800,
+  },
+  customKPIs: [
+    { id: 'kpi1', name: 'Llamadas/Día', value: 9, target: 15, unit: 'llamadas', color: '#c0392b' },
+    { id: 'kpi2', name: 'Tasa Contacto', value: 76, target: 90, unit: '%', color: '#C7A15A' },
+    { id: 'kpi3', name: 'Recuperación', value: 1450, target: 3000, unit: 'Bs.', color: '#E8872A' },
+  ],
+  avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
+},
+
+{
+  id: 'ag6',
+  name: 'Daniela Rojas',
+  email: 'daniela.r@bancamsc.bo',
+  department: 'CB',
+  assignedDebtors: ['16', '17', '18'],
+  metrics: {
+    totalAssigned: 25,
+    contacted: 23,
+    negotiations: 17,
+    resolved: 13,
+    resolutionRate: 52,
+    avgDaysToResolve: 9,
+    recoveredAmount: 82500,
+  },
+  customKPIs: [
+    { id: 'kpi1', name: 'Llamadas/Día', value: 20, target: 15, unit: 'llamadas', color: '#155B3A' },
+    { id: 'kpi2', name: 'Tasa Contacto', value: 97, target: 90, unit: '%', color: '#C7A15A' },
+    { id: 'kpi3', name: 'Recuperación', value: 4100, target: 3000, unit: 'Bs.', color: '#E8872A' },
+  ],
+  avatar: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg',
+},
 ];
 
 export const moraJourneyPhases: MoraPhase[] = ['alert', 'collection', 'negotiation', 'legal', 'resolved'];
@@ -163,4 +231,182 @@ export const aiRecommendations: AIRecommendation[] = [
   { debtorId: '7', action: 'Programar visita de cobranza a domicilio', priority: 'high', expectedImpact: 0.72, confidence: 0.85 },
   { debtorId: '9', action: 'Enviar alerta de acción legal inminente', priority: 'critical', expectedImpact: 0.80, confidence: 0.90 },
   { debtorId: '6', action: 'Establecer plan de pagos acelerado', priority: 'medium', expectedImpact: 0.65, confidence: 0.79 },
+    {
+    debtorId: '11',
+    action: 'Cliente en proceso de refinanciamiento voluntario',
+    priority: 'medium',
+    expectedImpact: 0.69,
+    confidence: 0.84,
+  },
+  {
+    debtorId: '12',
+    action: 'No localizado hace 45 días. Escalar búsqueda domiciliaria',
+    priority: 'critical',
+    expectedImpact: 0.91,
+    confidence: 0.95,
+  },
+  {
+    debtorId: '13',
+    action: 'Cliente con intención de pago inmediata',
+    priority: 'low',
+    expectedImpact: 0.62,
+    confidence: 0.88,
+  },
+  {
+    debtorId: '14',
+    action: 'Preparar documentación para proceso judicial',
+    priority: 'critical',
+    expectedImpact: 0.86,
+    confidence: 0.93,
+  },
+  {
+    debtorId: '15',
+    action: 'Aceptar prórroga corta y mantener seguimiento diario',
+    priority: 'medium',
+    expectedImpact: 0.71,
+    confidence: 0.82,
+  },
+  {
+    debtorId: '16',
+    action: 'Mantener plan de pagos refinanciado activo',
+    priority: 'low',
+    expectedImpact: 0.74,
+    confidence: 0.86,
+  },
+  {
+    debtorId: '17',
+    action: 'Riesgo alto de insolvencia comercial',
+    priority: 'critical',
+    expectedImpact: 0.93,
+    confidence: 0.96,
+  },
+  {
+    debtorId: '18',
+    action: 'Caso recuperado exitosamente',
+    priority: 'low',
+    expectedImpact: 0.55,
+    confidence: 0.90,
+  },
+  
 ];
+
+export const moraRecords: MoraRecord[] = [
+    {
+    debtorId: '11',
+    date: '2026-05-01',
+    phase: 'negotiation',
+    moraDays: 38,
+    department: 'SC',
+    assignedAgent: 'ag4',
+    actionsTaken: [
+      'Llamada de seguimiento',
+      'Oferta de refinanciamiento',
+      'Confirmación parcial de pago',
+    ],
+    nextActionDate: '2026-05-20',
+    benefitApplied: 'installment',
+  },
+
+  {
+    debtorId: '12',
+    date: '2026-04-11',
+    phase: 'legal',
+    moraDays: 127,
+    department: 'LP',
+    assignedAgent: 'ag5',
+    actionsTaken: [
+      'Visita domiciliaria fallida',
+      'Número telefónico inactivo',
+      'Escalamiento jurídico',
+    ],
+    nextActionDate: '2026-05-22',
+  },
+
+  {
+    debtorId: '13',
+    date: '2026-05-12',
+    phase: 'resolved',
+    moraDays: 9,
+    department: 'OR',
+    assignedAgent: 'ag4',
+    actionsTaken: [
+      'Pago total realizado',
+      'Cierre de cobranza',
+    ],
+    benefitApplied: 'early_payment',
+  },
+
+  {
+    debtorId: '14',
+    date: '2026-03-18',
+    phase: 'legal',
+    moraDays: 173,
+    department: 'CB',
+    assignedAgent: 'ag5',
+    actionsTaken: [
+      'Cliente evade contacto',
+      'Notificación judicial enviada',
+      'Validación de garantías',
+    ],
+    nextActionDate: '2026-05-25',
+  },
+
+  {
+    debtorId: '15',
+    date: '2026-05-08',
+    phase: 'collection',
+    moraDays: 42,
+    department: 'SC',
+    assignedAgent: 'ag5',
+    actionsTaken: [
+      'Promesa de pago registrada',
+      'Seguimiento WhatsApp',
+    ],
+    nextActionDate: '2026-05-19',
+  },
+
+  {
+    debtorId: '16',
+    date: '2026-04-28',
+    phase: 'negotiation',
+    moraDays: 57,
+    department: 'TJ',
+    assignedAgent: 'ag6',
+    actionsTaken: [
+      'Refinanciamiento aprobado',
+      'Cronograma firmado',
+    ],
+    benefitApplied: 'installment',
+    nextActionDate: '2026-05-28',
+  },
+
+  {
+    debtorId: '17',
+    date: '2026-02-15',
+    phase: 'legal',
+    moraDays: 210,
+    department: 'LP',
+    assignedAgent: 'ag6',
+    actionsTaken: [
+      'Actividad comercial suspendida',
+      'Análisis patrimonial',
+      'Preparación de embargo',
+    ],
+    nextActionDate: '2026-05-30',
+  },
+
+  {
+    debtorId: '18',
+    date: '2026-05-10',
+    phase: 'resolved',
+    moraDays: 14,
+    department: 'SC',
+    assignedAgent: 'ag6',
+    actionsTaken: [
+      'Pago completado',
+      'Actualización de historial crediticio',
+    ],
+    benefitApplied: 'early_payment',
+  },
+];
+
